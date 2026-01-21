@@ -1,4 +1,6 @@
 import { useState, useEffect } from "react";
+import ExpenseForm from "./components/ExpenseForm";
+import ExpenseList from "./components/ExpenseList";
 
 function App() {
   const [expenses, setExpenses] = useState([]);
@@ -41,29 +43,15 @@ function App() {
     <div>
       <h1>Expense Tracker</h1>
 
-      <input
-        value={name}
-        onChange={(e) => setName(e.target.value)}
-        placeholder="Expense name"
+      <ExpenseForm
+        name={name}
+        amount={amount}
+        setName={setName}
+        setAmount={setAmount}
+        addExpense={addExpense}
       />
 
-      <input
-        type="number"
-        value={amount}
-        onChange={(e) => setAmount(e.target.value)}
-        placeholder="Amount"
-      />
-
-      <button onClick={addExpense}>Add Expense</button>
-
-      <ul>
-        {expenses.map((e) => (
-          <li key={e.id}>
-            {e.name} - ₹{e.amount}
-            <button onClick={() => deleteExpense(e.id)}>❌</button>
-          </li>
-        ))}
-      </ul>
+      <ExpenseList expenses={expenses} deleteExpense={deleteExpense} />
 
       <h3>
         Total: ₹{expenses.reduce((sum, e) => sum + e.amount, 0)}
