@@ -14,7 +14,7 @@ function ExpenseForm({ name, amount, setName, setAmount, addExpense }) {
         placeholder="Amount"
       />
 
-      <button onClick={addExpense}>Add Expense</button>
+      <button className="add-btn" onClick={addExpense}>Add Expense</button>
     </div>
   );
 }

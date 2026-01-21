@@ -40,7 +40,7 @@ function App() {
   }
 
   return (
-    <div>
+    <div className="container">
       <h1>Expense Tracker</h1>
 
       <ExpenseForm
@@ -53,7 +53,7 @@ function App() {
 
       <ExpenseList expenses={expenses} deleteExpense={deleteExpense} />
 
-      <h3>
+      <h3 className="total">
         Total: ₹{expenses.reduce((sum, e) => sum + e.amount, 0)}
       </h3>
     </div>

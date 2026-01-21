@@ -2,7 +2,7 @@ function ExpenseItem({ expense, deleteExpense }) {
   return (
     <li>
       {expense.name} - ₹{expense.amount}
-      <button onClick={() => deleteExpense(expense.id)}>❌</button>
+      <button className="delete-btn" onClick={() => deleteExpense(expense.id)}>❌</button>
     </li>
   );
 }
